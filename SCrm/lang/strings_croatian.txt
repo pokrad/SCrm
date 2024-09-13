@@ -1,0 +1,179 @@
+<?php
+$s_plugin_SCrm_title = 'Mali CRM';
+$s_plugin_SCrm_description = 'Simple CRM plugin for MantisBT';
+$s_plugin_SCrm_configuration = 'Konfiguracija';
+$s_plugin_SCrm_configuration_theme = 'SCrm tema';
+$s_plugin_SCrm_configuration_manage_tables_treshold = 'Minimalne dozvole za uređivanje tablica';
+$s_plugin_SCrm_configuration_manage_customer_vault = 'Minimalne dozvole za uređivanje klijentskog sefa';
+$s_plugin_SCrm_configuration_customer_required = 'Obavezan unos klijenta';
+$s_plugin_SCrm_configuration_service_required = 'Obavezan unos usluge';
+$s_plugin_SCrm_configuration_time_spent_required = 'Obavezan unos vremena';
+$s_plugin_SCrm_configuration_table_rows_per_page = 'Broj redaka na jednoj stranici tablice';
+
+
+#Main menu
+$s_plugin_SCrm_main_menu_groups = 'Uređivanje grupa';
+$s_plugin_SCrm_main_menu_customers = 'Uređivanje klijenata';
+$s_plugin_SCrm_main_menu_services = 'Uređivanje usluga';
+$s_plugin_SCrm_main_menu_normatives = 'Uređivanje normativa';
+$s_plugin_SCrm_main_menu_contacts = 'Uređivanje kontakata';
+$s_plugin_SCrm_main_menu_reports = 'Izvješća';
+
+
+#Global commands & labels
+$s_plugin_SCrm_global_cmd_search_filter_apply = 'Primjeni filter';
+$s_plugin_SCrm_global_cmd_search_filter_text = 'Tekst filtera...';
+$s_plugin_SCrm_global_cmd_hide_inactive_text = 'Sakrij neaktivne';
+$s_plugin_SCrm_global_cmd_total = 'Ukupno';
+$s_plugin_SCrm_global_cmd_grid_pager = 'Stranica:';
+$s_plugin_SCrm_global_cmd_save_record = 'Spremi zapis';
+$s_plugin_SCrm_global_cmd_delete_record = 'Obriši zapis';
+$s_plugin_SCrm_global_cmd_go_back = 'Vrati se';
+$s_plugin_SCrm_global_cmd_required_field = 'obavezno polje';
+
+
+#Page main_page
+$s_plugin_SCrm_main_page_info_title = 'Informacije o dodatku';
+$s_plugin_SCrm_main_page_info_version = 'Verzija dodatka';
+$s_plugin_SCrm_main_page_info_group_count = 'Broj grupa';
+$s_plugin_SCrm_main_page_info_customer_count = 'Broj klijenata';
+$s_plugin_SCrm_main_page_info_contact_count = 'Broj kontakata';
+$s_plugin_SCrm_main_page_info_service_count = 'Broj usluga';
+$s_plugin_SCrm_main_page_info_normative_count = 'Broj normativa';
+
+
+#####################
+#Common column names#
+#####################
+$s_plugin_SCrm_table_common_col_id = 'ID';
+$s_plugin_SCrm_table_common_col_notes = 'Napomene';
+$s_plugin_SCrm_table_common_col_active = 'Aktivan';
+$s_plugin_SCrm_table_common_col_created_at = 'Kreirano';
+$s_plugin_SCrm_table_common_col_modified_at = 'Izmjenjeno';
+
+
+###############
+#Table <group>#
+###############
+$s_plugin_SCrm_table_group_col_group_name = 'Naziv grupe';
+
+$s_plugin_SCrm_edit_groups_page_cmd_add_group = 'Kreiraj novu grupu';
+$s_plugin_SCrm_edit_group_record_label_edit_group = 'Izmjeni detalje o grupi';
+
+
+#################
+#Table <service>#
+#################
+$s_plugin_SCrm_table_service_col_service_name = 'Naziv usluge';
+$s_plugin_SCrm_table_service_col_is_billable = 'Fakturirati';
+$s_plugin_SCrm_table_service_col_points_per_hour = 'bodova/sat';
+$s_plugin_SCrm_table_service_col_time_spent = 'Utrošeno vrijeme';
+
+$s_plugin_SCrm_edit_services_page_cmd_add_service = 'Kreiraj novu uslugu';
+$s_plugin_SCrm_edit_service_record_label_edit_service = 'Izmjeni detalje o usluzi';
+
+
+###################
+#Table <normative>#
+###################
+$s_plugin_SCrm_table_normative_col_normative_name = 'Naziv normativa';
+
+$s_plugin_SCrm_edit_normative_page_cmd_add_normative = 'Kreiraj novi normativ';
+$s_plugin_SCrm_edit_normative_record_label_edit_normative = 'Izmjeni detalje o normativu';
+$s_plugin_SCrm_edit_normative_record_label_edit_services = 'Upravljaj uslugama iz normativa';
+$s_plugin_SCrm_edit_normative_record_label_add_service = 'Dodaj uslugu u normativ';
+$s_plugin_SCrm_edit_normative_record_label_manage_service = 'Uredi detalje usluge';
+
+
+#################
+#Table <contact>#
+#################
+$s_plugin_SCrm_table_contact_col_first_name = 'Ime';
+$s_plugin_SCrm_table_contact_col_second_name = 'Prezime';
+$s_plugin_SCrm_table_contact_col_email = 'E-mail';
+$s_plugin_SCrm_table_contact_col_phone = 'Telefon';
+$s_plugin_SCrm_table_contact_col_address = 'Adresa';
+
+$s_plugin_SCrm_edit_contacts_page_cmd_add_contact = 'Kreiraj novi kontakt';
+$s_plugin_SCrm_edit_contact_record_label_edit_contact = 'Izmjeni detalje o kontaktu';
+
+
+##################
+#Table <customer>#
+##################
+$s_plugin_SCrm_table_customer_col_customer_name = 'Naziv klijenta';
+$s_plugin_SCrm_table_customer_col_group_id = 'Grupa klijenata';
+$s_plugin_SCrm_table_customer_col_normative_id = 'Normativ usluga';
+$s_plugin_SCrm_table_customer_col_ident_number = 'Ident. broj';
+$s_plugin_SCrm_table_customer_col_email = 'E-mail';
+$s_plugin_SCrm_table_customer_col_phone = 'Telefon';
+$s_plugin_SCrm_table_customer_col_address = 'Adresa';
+
+$s_plugin_SCrm_edit_customers_page_cmd_add_customer = 'Kreiraj novog klijenta';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer = 'Izmjeni detalje o klijentu';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer_contacts = 'Kontakti vezani za klijenta';
+$s_plugin_SCrm_edit_customer_record_label_add_contact = 'Dodaj kontakt';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer_vault = 'Upravljaj sefom klijenta';
+$s_plugin_SCrm_edit_customer_record_label_add_vault_item = 'Dodaj stavku u sef';
+$s_plugin_SCrm_edit_customer_record_label_view_issues = 'Lista problema';
+
+
+##################
+#Table <bug_data>#
+##################
+$s_plugin_SCrm_table_bug_data_col_bug_id = 'Bug';
+$s_plugin_SCrm_table_bug_data_col_group_id = 'Grupa klijenata';
+$s_plugin_SCrm_table_bug_data_col_customer_id = 'Klijent';
+
+
+##################
+#Table <bug_note>#
+##################
+$s_plugin_SCrm_bug_note_label_contact = 'Kontakt';
+$s_plugin_SCrm_bug_note_label_service = 'Usluga';
+$s_plugin_SCrm_bug_note_label_time_spent = 'Utrošeno vrijeme (hhh:mm)';
+$s_plugin_SCrm_bug_note_label_total_points = "Ukupno bodova";
+$s_plugin_SCrm_bug_note_label_billable_points = "Naplativih bodova";
+$s_plugin_SCrm_bug_note_label_total_time = "Ukupno vrijeme";
+$s_plugin_SCrm_bug_note_label_total_billable_time = "Naplativo vrijeme";
+$s_plugin_SCrm_bug_note_label_total_services = "Broj usluga";
+$s_plugin_SCrm_bug_note_label_total_billable_services = "Broj naplativih usluga";
+
+
+########################
+#Table <customer_vault>#
+########################
+$s_plugin_SCrm_table_customer_vault_item_name = "Naziv";
+$s_plugin_SCrm_table_customer_vault_item_value = "Sadržaj";
+
+$s_plugin_SCrm_customer_vault_label_add_item = "Dodaj stavku";
+$s_plugin_SCrm_customer_vault_label_edit_item = "Izmjeni stavku";
+
+
+#################
+#bug_issues_view#
+#################
+$s_plugin_SCrm_bug_issues_view_label_bug_id = "Problem";
+$s_plugin_SCrm_bug_issues_view_label_summary = "Sažetak";
+$s_plugin_SCrm_bug_issues_view_label_description = "Opis";
+$s_plugin_SCrm_bug_issues_view_label_project_name = "Projekt";
+$s_plugin_SCrm_bug_issues_view_label_category_name = "Kategorija";
+$s_plugin_SCrm_bug_issues_view_label_date_submitted = "Datum otvaranja";
+$s_plugin_SCrm_bug_issues_view_label_reporter_username = "Prijavitelj";
+$s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
+$s_plugin_SCrm_bug_issues_view_label_priority = "Prioritet";
+$s_plugin_SCrm_bug_issues_view_label_status = "Status";
+$s_plugin_SCrm_bug_issues_view_label_time_spent = "Utrošeno vrijeme";
+$s_plugin_SCrm_bug_issues_view_label_total_points = "Ukupno bodova";
+$s_plugin_SCrm_bug_issues_view_label_time_spent_billable = "Naplativo vrijeme";
+$s_plugin_SCrm_bug_issues_view_label_total_points_billable = "Naplativo bodova";
+
+#Activity report
+$s_plugin_SCrm_report_label = "Izvješće o aktivnostima";
+$s_plugin_SCrm_report_period = "Period";
+$s_plugin_SCrm_report_period_created_this_month = "Otvoreni ovaj mjesec";
+$s_plugin_SCrm_report_period_created_last_month = "Otvoreni prošli mjesec";
+$s_plugin_SCrm_report_period_modified_this_month = "Ažurirani ovaj mjesec";
+$s_plugin_SCrm_report_period_modified_last_month = "Ažurirani prošli mjesec";
+$s_plugin_SCrm_report_period_closed_this_month = "Zatvoreni ovaj mjesec";
+$s_plugin_SCrm_report_period_closed_last_month = "Zatvoreni prošli mjesec";

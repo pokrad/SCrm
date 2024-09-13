@@ -1,0 +1,179 @@
+<?php
+$s_plugin_SCrm_title = 'Simple CRM';
+$s_plugin_SCrm_description = 'Simple CRM plugin for MantisBT';
+$s_plugin_SCrm_configuration = 'Configuration';
+$s_plugin_SCrm_configuration_theme = 'SCrm theme';
+$s_plugin_SCrm_configuration_manage_tables_treshold = 'Manage tables treshold';
+$s_plugin_SCrm_configuration_manage_customer_vault = 'Acess client vault treshold';
+$s_plugin_SCrm_configuration_customer_required = 'Client is mandatory';
+$s_plugin_SCrm_configuration_service_required = 'Service is mandatory';
+$s_plugin_SCrm_configuration_time_spent_required = 'Time spent is mandatory';
+$s_plugin_SCrm_configuration_table_rows_per_page = 'Table rows per page';
+
+
+#Main menu
+$s_plugin_SCrm_main_menu_groups = 'Manage groups';
+$s_plugin_SCrm_main_menu_customers = 'Manage customers';
+$s_plugin_SCrm_main_menu_services = 'Manage services';
+$s_plugin_SCrm_main_menu_normatives = 'Manage normatives';
+$s_plugin_SCrm_main_menu_contacts = 'Manage contacts';
+$s_plugin_SCrm_main_menu_reports = 'Reports';
+
+
+#Global commands & labels
+$s_plugin_SCrm_global_cmd_search_filter_apply = 'Apply filter';
+$s_plugin_SCrm_global_cmd_search_filter_text = 'Filter text...';
+$s_plugin_SCrm_global_cmd_hide_inactive_text = 'Hide inactive';
+$s_plugin_SCrm_global_cmd_total = 'Total';
+$s_plugin_SCrm_global_cmd_grid_pager = 'Page:';
+$s_plugin_SCrm_global_cmd_save_record = 'Save record';
+$s_plugin_SCrm_global_cmd_delete_record = 'Delete record';
+$s_plugin_SCrm_global_cmd_go_back = 'Go back';
+$s_plugin_SCrm_global_cmd_required_field = 'required';
+
+
+#Page main_page
+$s_plugin_SCrm_main_page_info_title = 'Plugin information';
+$s_plugin_SCrm_main_page_info_version = 'Plugin version';
+$s_plugin_SCrm_main_page_info_group_count = 'Group count';
+$s_plugin_SCrm_main_page_info_customer_count = 'Customer count';
+$s_plugin_SCrm_main_page_info_contact_count = 'Contact count';
+$s_plugin_SCrm_main_page_info_service_count = 'Service count';
+$s_plugin_SCrm_main_page_info_normative_count = 'Normative count';
+
+
+#####################
+#Common column names#
+#####################
+$s_plugin_SCrm_table_common_col_id = 'ID';
+$s_plugin_SCrm_table_common_col_notes = 'Notes';
+$s_plugin_SCrm_table_common_col_active = 'Active';
+$s_plugin_SCrm_table_common_col_created_at = 'Created at';
+$s_plugin_SCrm_table_common_col_modified_at = 'Modified at';
+
+
+###############
+#Table <group>#
+###############
+$s_plugin_SCrm_table_group_col_group_name = 'Group name';
+
+$s_plugin_SCrm_edit_groups_page_cmd_add_group = 'Create new group';
+$s_plugin_SCrm_edit_group_record_label_edit_group = 'Edit group details';
+
+
+#################
+#Table <service>#
+#################
+$s_plugin_SCrm_table_service_col_service_name = 'Service name';
+$s_plugin_SCrm_table_service_col_is_billable = 'Billable';
+$s_plugin_SCrm_table_service_col_points_per_hour = 'Points/hour';
+$s_plugin_SCrm_table_service_col_time_spent = 'Time spent';
+
+$s_plugin_SCrm_edit_services_page_cmd_add_service = 'Create new service';
+$s_plugin_SCrm_edit_service_record_label_edit_service = 'Edit service details';
+
+
+###################
+#Table <normative>#
+###################
+$s_plugin_SCrm_table_normative_col_normative_name = 'Normative name';
+$s_plugin_SCrm_edit_normative_page_cmd_add_normative = 'Create new normative';
+
+$s_plugin_SCrm_edit_normative_record_label_edit_normative = 'Edit normative details';
+$s_plugin_SCrm_edit_normative_record_label_edit_services = 'Manage services for mormative';
+$s_plugin_SCrm_edit_normative_record_label_add_service = 'Add service to normative';
+$s_plugin_SCrm_edit_normative_record_label_manage_service = 'Edit service details';
+
+
+#################
+#Table <contact>#
+#################
+$s_plugin_SCrm_table_contact_col_first_name = 'First name';
+$s_plugin_SCrm_table_contact_col_second_name = 'Surname';
+$s_plugin_SCrm_table_contact_col_email = 'E-mail';
+$s_plugin_SCrm_table_contact_col_phone = 'Phone';
+$s_plugin_SCrm_table_contact_col_address = 'Address';
+
+$s_plugin_SCrm_edit_contacts_page_cmd_add_contact = 'Create new contact';
+$s_plugin_SCrm_edit_contact_record_label_edit_contact = 'Edit contact details';
+
+
+##################
+#Table <customer>#
+##################
+$s_plugin_SCrm_table_customer_col_customer_name = 'Customer name';
+$s_plugin_SCrm_table_customer_col_group_id = 'Customer Group';
+$s_plugin_SCrm_table_customer_col_normative_id = 'Services normative';
+$s_plugin_SCrm_table_customer_col_ident_number = 'Ident number';
+$s_plugin_SCrm_table_customer_col_email = 'E-mail';
+$s_plugin_SCrm_table_customer_col_phone = 'Phone';
+$s_plugin_SCrm_table_customer_col_address = 'Address';
+
+$s_plugin_SCrm_edit_customers_page_cmd_add_customer = 'Create new customer';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer = 'Edit customer details';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer_contacts = 'Manage contacts for customer';
+$s_plugin_SCrm_edit_customer_record_label_add_contact = 'Add contact';
+$s_plugin_SCrm_edit_customer_record_label_edit_customer_vault = 'Manage Customer vault';
+$s_plugin_SCrm_edit_customer_record_label_add_vault_item = 'Add vault item';
+$s_plugin_SCrm_edit_customer_record_label_view_issues = 'Issue list';
+
+
+##################
+#Table <bug_data>#
+##################
+$s_plugin_SCrm_table_bug_data_col_bug_id = 'Bug';
+$s_plugin_SCrm_table_bug_data_col_group_id = 'Customer group';
+$s_plugin_SCrm_table_bug_data_col_customer_id = 'Customer';
+
+
+###################
+#Table <bug_note> #
+###################
+$s_plugin_SCrm_bug_note_label_contact = 'Contact';
+$s_plugin_SCrm_bug_note_label_service = 'Service';
+$s_plugin_SCrm_bug_note_label_time_spent = 'Time spent (hhh:mm)';
+$s_plugin_SCrm_bug_note_label_total_points = "Total points";
+$s_plugin_SCrm_bug_note_label_billable_points = "Billable points";
+$s_plugin_SCrm_bug_note_label_total_time = "Total time";
+$s_plugin_SCrm_bug_note_label_total_billable_time = "Billable time";
+$s_plugin_SCrm_bug_note_label_total_services = "Service count";
+$s_plugin_SCrm_bug_note_label_total_billable_services = "Billable service count";
+
+
+########################
+#Table <customer_vault>#
+########################
+$s_plugin_SCrm_table_customer_vault_item_name = "Item name";
+$s_plugin_SCrm_table_customer_vault_item_value = "Item value";
+
+$s_plugin_SCrm_customer_vault_label_add_item = "Add item";
+$s_plugin_SCrm_customer_vault_label_edit_item = "Edit item";
+
+
+#################
+#bug_issues_view#
+#################
+$s_plugin_SCrm_bug_issues_view_label_bug_id = "Issue";
+$s_plugin_SCrm_bug_issues_view_label_summary = "Summary";
+$s_plugin_SCrm_bug_issues_view_label_description = "Description";
+$s_plugin_SCrm_bug_issues_view_label_project_name = "Project";
+$s_plugin_SCrm_bug_issues_view_label_category_name = "Category";
+$s_plugin_SCrm_bug_issues_view_label_date_submitted = "Date submited";
+$s_plugin_SCrm_bug_issues_view_label_reporter_username = "Reporter";
+$s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
+$s_plugin_SCrm_bug_issues_view_label_priority = "Priority";
+$s_plugin_SCrm_bug_issues_view_label_status = "Status";
+$s_plugin_SCrm_bug_issues_view_label_time_spent = "Time spent";
+$s_plugin_SCrm_bug_issues_view_label_total_points = "Total points";
+$s_plugin_SCrm_bug_issues_view_label_time_spent_billable = "Billable time";
+$s_plugin_SCrm_bug_issues_view_label_total_points_billable = "Billable points";
+
+#Activity report
+$s_plugin_SCrm_report_label = "Activity report";
+$s_plugin_SCrm_report_period = "Period";
+$s_plugin_SCrm_report_period_created_this_month = "Created this month";
+$s_plugin_SCrm_report_period_created_last_month = "Created last month";
+$s_plugin_SCrm_report_period_modified_this_month = "Modifed this month";
+$s_plugin_SCrm_report_period_modified_last_month = "Modifed last month";
+$s_plugin_SCrm_report_period_closed_this_month = "Closed this month";
+$s_plugin_SCrm_report_period_closed_last_month = "Closed last month";
