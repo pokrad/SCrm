@@ -5,7 +5,7 @@ Simple CRM
 
 ## Requirements
 
-The Source Integration framework requires **[MantisBT](https://mantisbt.org/)
+The Source SCrm plugin requires **[MantisBT](https://mantisbt.org/)
 version 2.** or higher.
 
 
