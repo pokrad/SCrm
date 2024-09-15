@@ -294,11 +294,12 @@ $p_this_page_url = plugin_page('edit_customer_record') . "&field_id={$field_id}&
 
 
 	<?php
-		$this_callback_url = urlencode(plugin_page('edit_customer_record',true) . "&action=edit&id=".$field_id);
+		if ($field_id >0){
+			$this_callback_url = urlencode(plugin_page('edit_customer_record',true) . "&action=edit&id=".$field_id);
 
-		$collapse_block = is_collapsed( 'customer_contact_list' );
-		$block_css = $collapse_block ? 'collapsed' : '';
-		$block_icon = $collapse_block ? 'fa-chevron-down' : 'fa-chevron-up';
+			$collapse_block = is_collapsed( 'customer_contact_list' );
+			$block_css = $collapse_block ? 'collapsed' : '';
+			$block_icon = $collapse_block ? 'fa-chevron-down' : 'fa-chevron-up';
 	?>
 
 	<!-- Customer contacts -->
@@ -633,7 +634,8 @@ $p_this_page_url = plugin_page('edit_customer_record') . "&field_id={$field_id}&
 			</div>
 		</div>
 	</div>
-</div>
+	<?php
+	}
 
-<?php
+echo "</div>";
 layout_page_end();

@@ -1,6 +1,8 @@
 <?php
 
 require_api("install_helper_functions_api.php");
+require_api("database_api.php");
+
 
 class SCrmSchema
 {
@@ -21,7 +23,7 @@ class SCrmSchema
 					notes C(2048) NULL,
 					created_at I NOTNULL DEFAULT 0,
 					modified_at I NOTNULL DEFAULT 0,
-					active boolean DEFAULT true NOTNULL"
+					active L NOTNULL"
 				]
 			],
 			[
@@ -35,7 +37,7 @@ class SCrmSchema
 					points_per_hour N(10,2),
 					created_at I NOTNULL DEFAULT 0,
 					modified_at I NOTNULL DEFAULT 0,
-					active boolean DEFAULT true NOTNULL"
+					active L NOTNULL"
 				]
 			],
 			[
@@ -47,7 +49,7 @@ class SCrmSchema
 					notes C(2048) NULL,
 					created_at I NOTNULL DEFAULT 0,
 					modified_at I NOTNULL DEFAULT 0,
-					active boolean DEFAULT true NOTNULL"
+					active L NOTNULL"
 				]
 			],
 			[
@@ -77,7 +79,7 @@ class SCrmSchema
 					normative_id I NULL,
 					created_at I NOTNULL DEFAULT 0,
 					modified_at I NOTNULL DEFAULT 0,
-					active boolean DEFAULT true NOTNULL"
+					active L NOTNULL"
 				]
 			],
 			[
@@ -97,7 +99,7 @@ class SCrmSchema
 				[
 					plugin_table("contact"), 
 					"id I NOTNULL UNSIGNED AUTOINCREMENT PRIMARY,
-					first_name name C(128) NOTNULL,
+					first_name C(128) NOTNULL,
 					second_name C(128) NOTNULL,
 					email C(128) NULL,
 					phone C(128) NULL,
@@ -105,7 +107,7 @@ class SCrmSchema
 					notes C(2048) NULL,
 					created_at I NOTNULL DEFAULT 0,
 					modified_at I NOTNULL DEFAULT 0,
-					active boolean DEFAULT true NOTNULL"
+					active L NOTNULL"
 				]
 			],
 			[

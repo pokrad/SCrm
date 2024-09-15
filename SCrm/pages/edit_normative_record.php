@@ -191,6 +191,7 @@ $p_this_page_url = plugin_page('edit_normative_record') . "&field_id={$field_id}
 
 
 	<?php
+		if ($field_id >0){
 		$this_callback_url = urlencode(plugin_page('edit_normative_record',true) . "&action=edit&id=".$field_id);
 	?>
 
@@ -262,7 +263,9 @@ $p_this_page_url = plugin_page('edit_normative_record') . "&field_id={$field_id}
 			</div>
 		</form>
 	</div>
-</div>
+	<?php
+	}
 
-<?php
+echo "</div>";
+
 layout_page_end();
