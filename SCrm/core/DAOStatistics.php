@@ -111,7 +111,7 @@ class DAOStatistics
 		$col_modified_at_label = plugin_lang_get('table_common_col_modified_at');
 		$col_created_at_label = plugin_lang_get('table_common_col_created_at');
 		$col_service_name_label = plugin_lang_get('table_service_col_service_name');
-		$col_points_per_hour_label = plugin_lang_get('table_service_col_points_per_hour');
+		$col_points_per_hour_label = plugin_lang_get('bug_issues_view_label_points_per_hour');
 		$col_time_spent_label = plugin_lang_get('bug_issues_view_label_time_spent');
 		$col_total_points_label = plugin_lang_get('bug_issues_view_label_total_points');
 		$col_time_spent_billable_label = plugin_lang_get('bug_issues_view_label_time_spent_billable');

@@ -2,7 +2,7 @@
 header("Cache-Control: no cache");
 session_cache_limiter("private_no_expire");
 layout_page_header( plugin_lang_get( 'title' ) );
-layout_page_begin();
+layout_page_begin( plugin_page('main_page'));
 SCrmTools::print_main_menu("edit_normatives");
 
 $date_format = config_get( 'short_date_format' );

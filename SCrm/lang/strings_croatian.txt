@@ -164,6 +164,7 @@ $s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
 $s_plugin_SCrm_bug_issues_view_label_priority = "Prioritet";
 $s_plugin_SCrm_bug_issues_view_label_status = "Status";
 $s_plugin_SCrm_bug_issues_view_label_time_spent = "Utrošeno vrijeme";
+$s_plugin_SCrm_bug_issues_view_label_points_per_hour = "Bod/sat";
 $s_plugin_SCrm_bug_issues_view_label_total_points = "Ukupno bodova";
 $s_plugin_SCrm_bug_issues_view_label_time_spent_billable = "Naplativo vrijeme";
 $s_plugin_SCrm_bug_issues_view_label_total_points_billable = "Naplativo bodova";

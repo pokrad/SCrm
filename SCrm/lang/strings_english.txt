@@ -164,9 +164,10 @@ $s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
 $s_plugin_SCrm_bug_issues_view_label_priority = "Priority";
 $s_plugin_SCrm_bug_issues_view_label_status = "Status";
 $s_plugin_SCrm_bug_issues_view_label_time_spent = "Time spent";
-$s_plugin_SCrm_bug_issues_view_label_total_points = "Total points";
+$s_plugin_SCrm_bug_issues_view_label_points_per_hour = "Pts/hour";
+$s_plugin_SCrm_bug_issues_view_label_total_points = "Total pts";
 $s_plugin_SCrm_bug_issues_view_label_time_spent_billable = "Billable time";
-$s_plugin_SCrm_bug_issues_view_label_total_points_billable = "Billable points";
+$s_plugin_SCrm_bug_issues_view_label_total_points_billable = "Billable pts";
 
 #Activity report
 $s_plugin_SCrm_report_label = "Activity report";

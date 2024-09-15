@@ -7,7 +7,7 @@ compress_enable();
 layout_page_header( plugin_lang_get( 'title' ) );
 echo '<script type="text/javascript" src="' . plugin_file('view_reports.js') . '"></script>' .
 
-layout_page_begin();
+layout_page_begin( plugin_page('main_page'));
 
 SCrmTools::print_main_menu("view_reports");
 

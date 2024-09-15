@@ -7,7 +7,7 @@ if (!access_has_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_CUSTOMER_VAUL
 	return;
 }		
 layout_page_header( plugin_lang_get( 'title' ) );
-layout_page_begin();
+layout_page_begin( plugin_page('main_page'));
 SCrmTools::print_main_menu("edit_customers");
 
 $date_format = config_get( 'short_date_format' );

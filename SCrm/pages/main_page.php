@@ -1,7 +1,7 @@
 <?php
 require_api("config_api.php");
 layout_page_header( plugin_lang_get( 'title' ) );
-layout_page_begin();
+layout_page_begin( plugin_page('main_page'));
 SCrmTools::print_main_menu("main_page");
 
 $stats = DAOStatistics::getTotalCounts();
