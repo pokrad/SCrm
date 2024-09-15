@@ -118,17 +118,17 @@ class DAOStatistics
 		$col_total_points_billable_label = plugin_lang_get('bug_issues_view_label_total_points_billable');
 
 		$service_table_header = "<tr>".
-			"<th width=\"3%\"> # </th>".
-			"<th width=\"5%\">{$col_created_at_label}</th>".
-			"<th width=\"5%\">{$col_modified_at_label}</th>".
-			"<th width=\"5%\">{$col_reporter_title}</th>".
-			"<th width=\"40%\">{$col_note_title}</th>".
-			"<th width=\"10%\">{$col_service_name_label}</th>".
-			"<th width=\"5%\">{$col_points_per_hour_label}</th>".
-			"<th width=\"7%\">{$col_time_spent_label}</th>".
-			"<th width=\"7%\">{$col_total_points_label}</th>".
-			"<th width=\"7%\">{$col_time_spent_billable_label}</th>".
-			"<th width=\"7%\">{$col_total_points_billable_label}</th>".
+			"<th class=\"small-caption\"  width=\"3%\"> # </th>".
+			"<th class=\"small-caption\" width=\"5%\">{$col_created_at_label}</th>".
+			"<th class=\"small-caption\" width=\"5%\">{$col_modified_at_label}</th>".
+			"<th class=\"small-caption\" width=\"5%\">{$col_reporter_title}</th>".
+			"<th class=\"small-caption\" width=\"40%\">{$col_note_title}</th>".
+			"<th class=\"small-caption\" width=\"10%\">{$col_service_name_label}</th>".
+			"<th class=\"small-caption\" width=\"5%\">{$col_points_per_hour_label}</th>".
+			"<th class=\"small-caption\" width=\"7%\">{$col_time_spent_label}</th>".
+			"<th class=\"small-caption\" width=\"7%\">{$col_total_points_label}</th>".
+			"<th class=\"small-caption\" width=\"7%\">{$col_time_spent_billable_label}</th>".
+			"<th class=\"small-caption\" width=\"7%\">{$col_total_points_billable_label}</th>".
 		"</tr>";
 
 		$recap = [];
@@ -156,7 +156,7 @@ class DAOStatistics
 				echo "<th>{$col_activity_title} </th>";
 
 				echo "<td class=\"no-margin no-padding\" colspan={$detail_colspan}>";
-					echo "<table border=1 width=\"100%\">";
+					echo "<table class=\"table table-condensed2\" width=\"100%\">";
 						echo $service_table_header;
 						while( $row_service = db_fetch_array( $services_rec ) ) 
 						{
@@ -166,30 +166,30 @@ class DAOStatistics
 							$activity_link = "bugnote_edit_page.php?&bugnote_id=".$row_service['bugnote_id'];
 
 							echo "<tr>";
-							echo "<td> <a href=\"{$activity_link}\">{$row_service['bugnote_id']}</a></td>";
-							echo "<td> <a href=\"{$activity_link}\">{$date_submitted}</a></td>";
-							echo "<td> <a href=\"{$activity_link}\">{$last_modified}</a></td>";
-							echo "<td> {$row_service['reporter_name']}</td>";
-							echo "<td> {$row_service['note_text']}</td>";
-							echo "<td> {$row_service['service_name']}</td>";
-							echo "<td> {$row_service['points_per_hour']}</td>";
-							echo "<td> {$duration}</td>";
-							echo "<td> {$row_service['total_points']}</td>";
+							echo "<td class=\"small-caption\" > <a href=\"{$activity_link}\">{$row_service['bugnote_id']}</a></td>";
+							echo "<td class=\"small-caption\" > <a href=\"{$activity_link}\">{$date_submitted}</a></td>";
+							echo "<td class=\"small-caption\" > <a href=\"{$activity_link}\">{$last_modified}</a></td>";
+							echo "<td class=\"small-caption\" > {$row_service['reporter_name']}</td>";
+							echo "<td class=\"small-caption\" > {$row_service['note_text']}</td>";
+							echo "<td class=\"small-caption\" > {$row_service['service_name']}</td>";
+							echo "<td class=\"small-caption\" > {$row_service['points_per_hour']}</td>";
+							echo "<td class=\"small-caption\" > {$duration}</td>";
+							echo "<td class=\"small-caption\" > {$row_service['total_points']}</td>";
 
 							$recap['bug_issues_view_label_time_spent'] += $row_service['time_spent'];
 							$recap['bug_issues_view_label_total_points'] += $row_service['total_points'];
 
 							if ($row_service['is_billable'])
 							{
-								echo "<td> {$duration}</td>";
-								echo "<td> {$row_service['total_points']}</td>";
+								echo "<td class=\"small-caption\" > {$duration}</td>";
+								echo "<td class=\"small-caption\" > {$row_service['total_points']}</td>";
 								$recap['bug_issues_view_label_time_spent_billable'] += $row_service['time_spent'];
 								$recap['bug_issues_view_label_total_points_billable'] += $row_service['total_points'];
 							}
 							else
 							{
-								echo "<td></td>";
-								echo "<td></td>";
+								echo "<td class=\"small-caption\" ></td>";
+								echo "<td class=\"small-caption\" ></td>";
 							}
 							echo "</tr>";
 						};
