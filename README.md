@@ -84,5 +84,5 @@ Users can generate reports on time spent, billable hours, and billable points us
 ![Report Screenshot](img/scrm_img_report.png "scrm_img_report.png")
 
 ### Create issue from email
-Users can import e-mails from one "support email account". Custoers are autoatically recognized by customer or contact email. All attachements are also created and connected with issue.:
+Users can import e-mails from one "support email account". Customers are automatically recognized by customer or contact email. All attachements are also created and connected with issue.:
 ![MailImport Screenshot](img/scrm_img_mail_import.png "scrm_img_mail_import.png")
