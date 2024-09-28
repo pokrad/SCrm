@@ -13,14 +13,17 @@ SCrmTools::print_main_menu("view_email");
 $this_page = plugin_page('view_email_record');
 
 $create_from_mail_uid = gpc_get_int('create_from_mail_uid',null);
-$create_from_mail_hash = gpc_get_string('create_from_mail_hash',null);
-$create_from_mail_customer_id = gpc_get_int('create_from_mail_customer_id',null);
 
 if ($create_from_mail_uid != null)
 {
+	$create_from_mail_hash = gpc_get_string('create_from_mail_hash',null);
+	$create_from_mail_customer_id = gpc_get_int('create_from_mail_customer_id',null);
+	$create_from_mail_summary = gpc_get_string('create_from_mail_summary',null);
+	$create_from_mail_category = gpc_get_string('category_id',null);
+	
 	if (!DAOBugData::mail_hash_exists($create_from_mail_hash))
 	{
-		$bug_id = DAOMailListItem::create_bug_from_mail($create_from_mail_uid,$create_from_mail_hash);
+		$bug_id = DAOMailListItem::create_bug_from_mail($create_from_mail_uid,$create_from_mail_category,$create_from_mail_summary,$create_from_mail_hash);
 		DAOBugData::update_record($bug_id,$create_from_mail_customer_id,$create_from_mail_hash);
 		$link = "view.php?&id=" . strval($bug_id);
 		print_header_redirect( $link );
@@ -31,18 +34,21 @@ if ($create_from_mail_uid != null)
 		trigger_error( "Email already imported ! Refresh page.", ERROR );
 	}
 }
-
-$mail_uid = gpc_get_int('mail_uid',null);
-if ($mail_uid == null)
+else
 {
-	layout_page_end();
-	return;	
-}
-$mail = DAOMailListItem::get_message($mail_uid);
-if (!$mail)
-{
-	layout_page_end();
-	return;	
+	$mail_uid = gpc_get_int('mail_uid',null);
+	if ($mail_uid == null)
+	{
+		layout_page_end();
+		return;	
+	}
+	$mail = DAOMailListItem::get_message($mail_uid);
+	if (!$mail)
+	{
+		layout_page_end();
+		return;	
+	}
+	$mail_summary = $mail->subject;
 }
 
 ?>
@@ -67,7 +73,7 @@ if (!$mail)
 				if ($mail->bug_id == null) {
 					$customer_select_rec = DAOCustomer::get_lookup_list();
 					$customer_label = plugin_lang_get('table_bug_data_col_customer_id');
-					$select_attributes_customer = 'id="create_from_mail_customer_id" name="create_from_mail_customer_id" value="'.$customer_id.'"';
+					$select_attributes_customer = 'class="input-sm" id="create_from_mail_customer_id" name="create_from_mail_customer_id" value="'.$customer_id.'"';
 					$required = "";
 					if (config_get(SCrmPlugin::CFG_KEY_CUSTOMER_REQUIRED,false,true))
 					{
@@ -86,6 +92,21 @@ if (!$mail)
 						<div class="form-container">
 							<div class="pull-left">
 								<?php echo $customer_label . " : " .ScrmTools::format_select($customer_select_rec, $select_attributes_customer, "id", "customer_name", $customer_id); ?>
+								<span class="lbl padding-8">&nbsp;</span>
+
+								<?php echo lang_get('summary') ." : ";?>
+								<input type="text" class="input-sm" id="create_from_mail_summary" name="create_from_mail_summary" maxlength="128" size="50" value="<?php echo $mail_summary;?>" required>
+								<span class="lbl padding-8">&nbsp;</span>
+
+
+								<?php echo lang_get('category') ." : ";?>
+								<select id="category_id" name="category_id" required>
+									<?php
+										print_category_option_list();
+									?>
+								</select>
+								<span class="lbl padding-8">&nbsp;</span>
+
 								<input type="submit" class="btn btn-primary btn-sm btn-white btn-round" value="<?php echo plugin_lang_get('email_import_as_issue_label');?>">							
 							</div>
 					</fieldset>

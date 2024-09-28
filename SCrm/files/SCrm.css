@@ -611,10 +611,11 @@ input[type="file"],
 	padding: 10px
 }
 select {
-	background-color: var(--main-bg-color) !important;
+	background-color: var(--widget-bg-color) !important;
 	border: 1px solid var(--widget-border-color) !important;
 	border-radius: 3px !important;
-	color: var(--main-color) !important
+	color: var(--main-color) !important;
+	vertical-align: middle !important;
 }
 span.dependency_met {
 	color: #43a047 !important

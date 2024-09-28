@@ -184,7 +184,7 @@ class DAOMailListItem
 	}
 
 
-	public static function create_bug_from_mail(int $p_message_num, string $p_check_hash )
+	public static function create_bug_from_mail(int $p_message_num, int $p_category_id, string $p_summary, string $p_check_hash )
 	{
 		$mail = static::get_message($p_message_num); 
 		if (!$mail)
@@ -202,6 +202,7 @@ class DAOMailListItem
 
 		$t_bug_data = new BugData();
 		$t_bug_data->project_id				= $project_id;
+		$t_bug_data->category_id 			= $p_category_id;
 		$t_bug_data->reporter_id			= $user_id;
 		$t_bug_data->profile_id				= 0;
 		$t_bug_data->handler_id				= 0;
@@ -215,7 +216,7 @@ class DAOMailListItem
 		$t_bug_data->resolution				= config_get( 'default_bug_resolution' );
 		$t_bug_data->status					= config_get( 'bug_submit_status' );
 		$t_bug_data->due_date				= date_get_null();
-		$t_bug_data->summary				= $mail->subject;
+		$t_bug_data->summary				= $p_summary;
 
 		$description = "";
 		foreach($mail->parts as $part)
