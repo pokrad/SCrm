@@ -1,4 +1,6 @@
 <?php
+plugin_require_api('core/DAOBugData.php');
+
 class ColumnCustomerGroup extends MantisColumn
 {
 	public function __construct( ) 

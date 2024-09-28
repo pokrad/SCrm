@@ -5,11 +5,17 @@ $s_plugin_SCrm_configuration = 'Configuration';
 $s_plugin_SCrm_configuration_theme = 'SCrm theme';
 $s_plugin_SCrm_configuration_manage_tables_treshold = 'Manage tables treshold';
 $s_plugin_SCrm_configuration_manage_customer_vault = 'Acess client vault treshold';
-$s_plugin_SCrm_configuration_customer_required = 'Client is mandatory';
+$s_plugin_SCrm_configuration_customer_required = 'Customer is mandatory';
 $s_plugin_SCrm_configuration_service_required = 'Service is mandatory';
 $s_plugin_SCrm_configuration_time_spent_required = 'Time spent is mandatory';
 $s_plugin_SCrm_configuration_table_rows_per_page = 'Table rows per page';
-
+$s_plugin_SCrm_configuration_import_mail_title = 'Mail import configuration';
+$s_plugin_SCrm_configuration_import_mail_host = 'Host';
+$s_plugin_SCrm_configuration_import_mail_port = 'Port';
+$s_plugin_SCrm_configuration_import_mail_type = 'Type';
+$s_plugin_SCrm_configuration_import_mail_user = 'User';
+$s_plugin_SCrm_configuration_import_mail_pwd = 'Password';
+$s_plugin_SCrm_configuration_import_mail_ssl = 'Use ssl';
 
 #Main menu
 $s_plugin_SCrm_main_menu_groups = 'Manage groups';
@@ -18,7 +24,8 @@ $s_plugin_SCrm_main_menu_services = 'Manage services';
 $s_plugin_SCrm_main_menu_normatives = 'Manage normatives';
 $s_plugin_SCrm_main_menu_contacts = 'Manage contacts';
 $s_plugin_SCrm_main_menu_reports = 'Reports';
-
+$s_plugin_SCrm_main_menu_import_emails = 'Import issues from email';
+$s_plugin_SCrm_main_menu_configuration = 'Configuration';
 
 #Global commands & labels
 $s_plugin_SCrm_global_cmd_search_filter_apply = 'Apply filter';
@@ -163,6 +170,7 @@ $s_plugin_SCrm_bug_issues_view_label_reporter_username = "Reporter";
 $s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
 $s_plugin_SCrm_bug_issues_view_label_priority = "Priority";
 $s_plugin_SCrm_bug_issues_view_label_status = "Status";
+$s_plugin_SCrm_bug_issues_view_label_activity_status = "Activity";
 $s_plugin_SCrm_bug_issues_view_label_time_spent = "Time spent";
 $s_plugin_SCrm_bug_issues_view_label_points_per_hour = "Pts/hour";
 $s_plugin_SCrm_bug_issues_view_label_total_points = "Total pts";
@@ -178,3 +186,6 @@ $s_plugin_SCrm_report_period_modified_this_month = "Modifed this month";
 $s_plugin_SCrm_report_period_modified_last_month = "Modifed last month";
 $s_plugin_SCrm_report_period_closed_this_month = "Closed this month";
 $s_plugin_SCrm_report_period_closed_last_month = "Closed last month";
+
+#import email
+$s_plugin_SCrm_email_import_as_issue_label = 'Import issue from email';

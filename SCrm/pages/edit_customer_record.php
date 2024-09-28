@@ -1,4 +1,12 @@
 <?php
+plugin_require_api('core/SCrmTools.php');
+plugin_require_api('core/DAOCustomer.php');
+plugin_require_api('core/DAOCustomerVault.php');
+plugin_require_api('core/DAOBugData.php');
+plugin_require_api('core/DAONormative.php');
+plugin_require_api('core/DAOBugNote.php');
+
+
 access_ensure_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD));
 layout_page_header( plugin_lang_get( 'title' ) );
 layout_page_begin( plugin_page('main_page'));
@@ -47,20 +55,6 @@ else if ($submit_save != '')
 		$field_active_val = true;
 	}
 
-	/*
-	echo $field_id . "<br/>";
-	echo $field_group_id . "<br/>";
-	echo $field_customer_name . "<br/>";
-	echo $field_ident_number . "<br/>";
-	echo $field_email . "<br/>";
-	echo $field_phone . "<br/>";
-	echo $field_address . "<br/>";
-	echo $field_notes . "<br/>";
-	echo $field_active . "<br/>";
-	echo $field_active_val . "<br/>";
-	return;
-	*/
-
 	if ($field_id ==  0)
 	{
 		DAOCustomer::insert_record(
@@ -106,12 +100,12 @@ else if ($submit_add_contact != '')
 {
 	$field_id = gpc_get_int('field_id',0);
 	$field_contact_add_id = gpc_get_int('field_contact_add_id',-1);
-	DAOCustomer::addContact($field_id,$field_contact_add_id);
+	DAOCustomer::add_contact($field_id,$field_contact_add_id);
 }
 else if ($submit_remove_contact_id>0)
 {
 	$field_id = gpc_get_int('field_id',0);
-	DAOCustomer::removeContact($field_id, $submit_remove_contact_id);
+	DAOCustomer::remove_contact($field_id, $submit_remove_contact_id);
 }
 else if ($submit_add_vault_item!='')
 {
@@ -347,7 +341,7 @@ $p_this_page_url = plugin_page('edit_customer_record') . "&field_id={$field_id}&
 						</thead>
 
 						<?php 
-							$contact_records = DAOCustomer::getContactsList($field_id);
+							$contact_records = DAOCustomer::get_contacts_list($field_id);
 							$page_edit_contact = plugin_page('edit_contact_record',true) . "&action=edit&page_callback_url=" . $this_callback_url;
 							while( $row = db_fetch_array( $contact_records ) ) 
 							{
@@ -366,7 +360,7 @@ $p_this_page_url = plugin_page('edit_customer_record') . "&field_id={$field_id}&
 								"</tr>" ;
 							}
 
-							$contact_lookup = DAOCustomer::getAddContactsLookupList($field_id);
+							$contact_lookup = DAOCustomer::get_add_contacts_lookup_list($field_id);
 							$selectAttributes = "class=\"input-sm\" id=\"field_contact_add_id\" name=\"field_contact_add_id\" value=\"\" required";
 							$action_title = plugin_lang_get('edit_customer_record_label_add_contact');
 							echo "<tr>" .

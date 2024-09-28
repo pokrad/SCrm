@@ -1,4 +1,7 @@
 <?php
+plugin_require_api('core/SCrmTools.php');
+plugin_require_api('core/DAOCustomerVault.php');
+
 access_ensure_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD));
 auth_ensure_user_authenticated();
 if (!access_has_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_CUSTOMER_VAULT_TRESHOLD))) 

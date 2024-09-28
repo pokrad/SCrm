@@ -15,7 +15,7 @@ class DAOCustomer
 	{
 		try
 		{
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 			$table_group = plugin_table('group');
 
@@ -77,7 +77,7 @@ class DAOCustomer
 	{
 		try
 		{
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 
 			$sql = "SELECT 
@@ -104,11 +104,11 @@ class DAOCustomer
 		}
 	}
 
-	public static function getContactsList($p_customer_id) 
+	public static function get_contacts_list($p_customer_id) 
 	{
 		try
 		{
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('contact');
 			$table_customers_to_contacts = plugin_table('customers_to_contacts');
 
@@ -132,11 +132,11 @@ class DAOCustomer
 		}
 	}
 
-	public static function getAddContactsLookupList($p_customer_id) 
+	public static function get_add_contacts_lookup_list($p_customer_id) 
 	{
 		try
 		{
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('contact');
 			$table_customers_to_contacts = plugin_table('customers_to_contacts');
 
@@ -155,9 +155,9 @@ class DAOCustomer
 		}
 	}
 	
-	public static function addContact($p_customer_id, $p_contact_id)
+	public static function add_contact($p_customer_id, $p_contact_id)
 	{
-		$query = new \DbQuery();
+		$query = new DbQuery();
 		$table_customers_to_contacts = plugin_table('customers_to_contacts');
 
 		$sql = "INSERT INTO  {$table_customers_to_contacts} (customer_id, contact_id) VALUES ($p_customer_id, $p_contact_id)";
@@ -166,9 +166,9 @@ class DAOCustomer
 		return $query->execute();
 	}
 
-	public static function removeContact($p_customer_id, $p_contact_id)
+	public static function remove_contact($p_customer_id, $p_contact_id)
 	{
-		$query = new \DbQuery();
+		$query = new DbQuery();
 		$table_customers_to_contacts = plugin_table('customers_to_contacts');
 
 		$sql = "DELETE FROM {$table_customers_to_contacts} WHERE customer_id = {$p_customer_id} AND contact_id={$p_contact_id}";
@@ -181,7 +181,7 @@ class DAOCustomer
 	{
 		try
 		{
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 			$table_group = plugin_table('group');
 			$table_normative = plugin_table('normative');
@@ -235,7 +235,7 @@ class DAOCustomer
 				trigger_error( "Invalid group !", ERROR );
 			}
 
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 			$active_str = $p_active ? 'true' : 'false';
 			$customer_name_str = str_replace("'","''",$p_customer_name);
@@ -287,7 +287,7 @@ class DAOCustomer
 				trigger_error( "Invalid group !", ERROR );
 			}
 
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 			$active_str = $p_active ? 'true' : 'false';
 			$customer_name_str = str_replace("'","''",$p_customer_name);
@@ -348,7 +348,7 @@ class DAOCustomer
 			}
 
 
-			$query = new \DbQuery();
+			$query = new DbQuery();
 			$table_customer = plugin_table('customer');
 			$sql = "DELETE FROM {$table_customer} WHERE id = {$p_id}";
 
@@ -358,6 +358,37 @@ class DAOCustomer
 		catch (Exception $e) 
 		{
 			trigger_error( $e->getMessage(), ERROR );
+		}
+	}
+
+	public static function get_customer_id_by_email($p_email)
+	{
+		$query = new DbQuery();
+		$table_customer = plugin_table('customer');
+		$table_contact = plugin_table('contact');
+		$table_customers_to_contacts = plugin_table('customers_to_contacts');
+		$email_str = str_replace("'","''",$p_email);
+
+
+		$sql = "SELECT CU.id 
+		FROM {$table_customer} CU
+		JOIN {$table_customers_to_contacts} CUCO ON CUCO.customer_id = CU.ID
+		JOIN {$table_contact} CO ON CO.ID = CUCO.contact_id
+		WHERE CU.email = '$email_str' OR CO.email = '$email_str'
+		ORDER BY CU.id";
+		
+		$query->sql( $sql );
+		$query->set_limit(1);
+		$rec=$query->execute();
+
+		if (!$rec)
+		{
+			return null;
+		}
+		else
+		{
+			$resStat = db_fetch_array( $rec );
+			return $resStat['id'];
 		}
 	}
 }

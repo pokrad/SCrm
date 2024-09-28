@@ -1,4 +1,8 @@
 <?php
+plugin_require_api('core/SCrmTools.php');
+plugin_require_api('core/DAONormative.php');
+
+
 access_ensure_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD));
 layout_page_header( plugin_lang_get( 'title' ) );
 layout_page_begin( plugin_page('main_page'));

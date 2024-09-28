@@ -235,7 +235,8 @@ textarea {
 .main-container:before,
 .main-container.container:before,
 .skin-3 .main-container:before {
-	background: var(--main-bg-color) !important
+	background: var(--main-bg-color) !important;
+	color: var(--main-color) !important;
 }
 .menu-text,
 .ace-nav>li.grey>a,

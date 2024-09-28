@@ -1,4 +1,6 @@
 <?php
+plugin_require_api('core/DAOCustomer.php');
+plugin_require_api('core/SCrmTools.php');
 
 class FilterCustomer extends MantisFilter
 {

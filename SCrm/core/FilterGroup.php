@@ -1,4 +1,6 @@
 <?php
+plugin_require_api('core/DAOGroup.php');
+plugin_require_api('core/SCrmTools.php');
 
 class FilterGroup extends MantisFilter 
 {

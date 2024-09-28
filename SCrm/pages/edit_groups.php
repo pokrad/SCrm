@@ -1,4 +1,9 @@
 <?php
+plugin_require_api('core/SCrmTools.php');
+plugin_require_api('core/DAOStatistics.php');
+plugin_require_api('core/DAOGroup.php');
+
+
 header("Cache-Control: no cache");
 session_cache_limiter("private_no_expire");
 layout_page_header( plugin_lang_get( 'title' ) );

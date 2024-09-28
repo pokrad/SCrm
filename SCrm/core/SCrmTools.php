@@ -2,11 +2,6 @@
 
 class SCrmTools  
 {
-    static function get_version()
-    {
-        return "1.0.1";
-    }
-
     static function print_main_menu( $p_page = '' ) 
     {
         $pages = array();
@@ -17,7 +12,11 @@ class SCrmTools
         $pages['edit_contacts.php'] = array( 'url'   => plugin_page('edit_contacts'), 'label' => plugin_lang_get('main_menu_contacts') );
         $pages['edit_groups.php'] = array( 'url'   => plugin_page('edit_groups'), 'label' =>  plugin_lang_get('main_menu_groups') );
         $pages['edit_customers.php'] = array( 'url'   => plugin_page('edit_customers'), 'label' => plugin_lang_get('main_menu_customers') );
+        $pages['view_email.php'] = array( 'url'   => plugin_page('view_email'), 'label' => plugin_lang_get('main_menu_import_emails'));
         $pages['view_reports.php'] = array( 'url'   => plugin_page('view_reports'), 'label' => plugin_lang_get('main_menu_reports'));
+        if (current_user_is_administrator()){
+            $pages['config_page.php'] = array( 'url'   => plugin_page('config_page'), 'label' => plugin_lang_get('main_menu_configuration'));
+        }
         if (plugin_page($p_page) == '')
         {
             $p_page = '';

@@ -111,8 +111,8 @@ class SCrmHooks
 				echo '<td colspan="2" style = "border: 0px !important; padding:0px !important;">' .
 					'<table class = "table table-condensed table-striped" style="padding:0px;border:0px;">' .
 						'<tr>' .
-							'<td style="text-align:left">"' .
-								$bugnote['contact_name'] ."&nbsp;&nbsp;". SCrmTools::format_mail_link($bugnote['contact_email']) ."&nbsp;&nbsp;". SCrmTools::format_phone_link($bugnote['contact_phone']) .
+							'<td class="category">' .
+							plugin_lang_get('bug_issues_view_label_activity_status') .
 							'</td>' .
 							'<td style="text-align:right;width:25%;">'.$bugnote['service_name'] . '</td>' .
 							'<td style="text-align:right;width:10%;">'.plugin_lang_get('table_service_col_points_per_hour'). ":" . $bugnote['points_per_hour'] . '</td>' .
@@ -146,7 +146,7 @@ class SCrmHooks
 
 		if ($field_customer_id)
 		{
-			$recordsetContact = DAOCustomer::getContactsList($field_customer_id);
+			$recordsetContact = DAOCustomer::get_contacts_list($field_customer_id);
 			$attributes = "class=\"input-sm\" id=\"field_contact_id\" name=\"field_contact_id\" value=\"{$field_contact_id}\"";
 			echo '<tr>' .
 				'<th class = "category">'.plugin_lang_get('bug_note_label_contact').'</th>' .

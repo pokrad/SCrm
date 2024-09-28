@@ -25,7 +25,8 @@ class DAOBugData
 
     public static function update_record(
         $p_bug_id, 
-        $p_customer_id
+        $p_customer_id,
+        $p_mail_hash = null
 	) 
 	{
 		try
@@ -41,14 +42,30 @@ class DAOBugData
             }
             else
             {
-                $sql = "INSERT INTO {$table_bug_data} (
-                    bug_id, 
-                    customer_id
-                ) 
-                VALUES (
-                    $p_bug_id, 
-                    $p_customer_id
-                )";
+                if ($p_mail_hash!=null)
+                {
+                    $sql = "INSERT INTO {$table_bug_data} (
+                        bug_id, 
+                        customer_id,
+                        mail_hash
+                    ) 
+                    VALUES (
+                        $p_bug_id, 
+                        $p_customer_id,
+                        '{$p_mail_hash}'
+                    )";
+                }
+                else
+                {
+                    $sql = "INSERT INTO {$table_bug_data} (
+                        bug_id, 
+                        customer_id
+                    ) 
+                    VALUES (
+                        $p_bug_id, 
+                        $p_customer_id
+                    )";
+                }
             }
 
 			$query->sql( $sql  );
@@ -77,7 +94,7 @@ class DAOBugData
 		}
 	}
 
-    static function get_customer( $p_bug_id ) 
+    public static function get_customer( $p_bug_id ) 
     {
         try
         {
@@ -108,7 +125,7 @@ class DAOBugData
         }
     }
 
-    static function get_customer_group( $p_bug_id ) 
+    public static function get_customer_group( $p_bug_id ) 
     {
         try
         {
@@ -377,4 +394,28 @@ class DAOBugData
         }
         return $query->execute();
     }
+
+    public static function mail_hash_exists($p_mail_hash) 
+	{
+		try
+		{
+			$query = new \DbQuery();
+			$table_bug_data = plugin_table('bug_data');
+            $sql = "SELECT bug_id FROM {$table_bug_data} WHERE mail_hash = '{$p_mail_hash}'";
+			$query->sql( $sql  );
+			$rec = $query->execute();
+            if ($rec)
+            {
+                return $rec->RecordCount() > 0;
+            }
+            else
+            {
+                return false;
+            }
+		}
+		catch (Exception $e) 
+		{
+			trigger_error( $e->getMessage(), ERROR );
+		}
+	}
 }

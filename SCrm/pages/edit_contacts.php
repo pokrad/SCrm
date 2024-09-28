@@ -1,4 +1,8 @@
 <?php
+plugin_require_api('core/SCrmTools.php');
+plugin_require_api('core/DAOStatistics.php');
+plugin_require_api('core/DAOContact.php');
+
 header("Cache-Control: no cache");
 session_cache_limiter("private_no_expire");
 layout_page_header( plugin_lang_get( 'title' ) );
@@ -138,6 +142,8 @@ if ($list_query->RecordCount() == 0 && $p_grid_pager_current>1)
 							</div>
 						</div>
 					</div>
+				</fieldset>
+			</form>
 
 			<!--Widget main-->
 			<div class="widget-main no-padding">

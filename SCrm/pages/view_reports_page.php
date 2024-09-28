@@ -1,9 +1,10 @@
 <?php
+plugin_require_api('core/DAOStatistics.php');
+
 header("Cache-Control: no cache");
 session_cache_limiter("private_no_expire");
 auth_ensure_user_authenticated();
 compress_enable();
-
 
 $report_title = plugin_lang_get('report_label');
 $filter = filter_gpc_get();	

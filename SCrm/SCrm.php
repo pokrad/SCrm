@@ -11,23 +11,36 @@ class SCrmPlugin extends MantisPlugin
     public const CFG_KEY_TABLE_ROWS_PER_PAGE = 'plugin_SCrm_cfg_table_rows_per_page';
     public const CFG_KEY_PRINT_ISSUE_COLUMN_LIST = 'plugin_SCrm_cfg_print_issie_column_list';
 
+    public const CFG_KEY_MAIL_IMPORT_HOST = 'plugin_SCrm_cfg_mail_import_host';
+    public const CFG_KEY_MAIL_IMPORT_PORT = 'plugin_SCrm_cfg_mail_import_port';
+    public const CFG_KEY_MAIL_IMPORT_TYPE = 'plugin_SCrm_cfg_mail_import_type';
+    public const CFG_KEY_MAIL_IMPORT_USER = 'plugin_SCrm_cfg_mail_import_user';
+    public const CFG_KEY_MAIL_IMPORT_PWD = 'plugin_SCrm_cfg_mail_import_pwd';
+    public const CFG_KEY_MAIL_IMPORT_SSL = 'plugin_SCrm_cfg_mail_import_SSL';
+
+
+    public static function get_version()
+    {
+        return "1.0.1";
+    }
+
+
     function register() 
     {
-        plugin_require_api( 'core/SCrmTools.php' );
         plugin_require_api( 'core/SCrmSchema.php' );
 
         $this->name = plugin_lang_get( 'title' );                   # Proper name of plugin
         $this->description = plugin_lang_get( 'description' );      # Short description of the plugin
-        $this->page = 'main_page';                                  # Default plugin page
+        $this->page = 'main_page';                                          # Default plugin page
 
-        $this->version = SCrmTools::get_version();                  # Plugin version string
-        $this->requires = [                                         # Plugin dependencies
-            'MantisCore' => '2.0',                                  # Should always depend on an appropriate version of MantisBT
+        $this->version = SCrmPlugin::get_version();                         # Plugin version string
+        $this->requires = [                                                 # Plugin dependencies
+            'MantisCore' => '2.0',                                          # Should always depend on an appropriate version of MantisBT
         ];
 
-        $this->author = 'Darko Prenosil';                           # Author/team name
-        $this->contact = 'dprenosil@google.com';                    # Author/team e-mail address
-        $this->url = 'https://mantisbt.org';                        # Support webpage
+        $this->author = 'Darko Prenosil';                                   # Author/team name
+        $this->contact = 'dprenosil@google.com';                            # Author/team e-mail address
+        $this->url = 'https://github.com/pokrad/SCrm/tree/main/SCrm';       # Support webpage
     }
 
     function hooks() 
@@ -57,24 +70,8 @@ class SCrmPlugin extends MantisPlugin
         ];
     }
 
-    function menu() 
-    {
-        if (access_has_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD)))
-        {
-            //Icon names: https://fontawesome.com/v4/icons/
-            $menu[] = 
-            [
-                'title' => $this->name,
-                'url' => plugin_page( 'main_page'),
-                'icon' => 'fa-vcard-o'
-            ];
-        }
-        return $menu;
-    }
-
 	function init() 
     {
-        plugin_require_api('core/SCrmTools.php');
         plugin_require_api('core/SCrmSchema.php');
         plugin_require_api('core/SCrmHooks.php');
 
@@ -83,18 +80,8 @@ class SCrmPlugin extends MantisPlugin
         plugin_require_api('core/FilterCustomer.php');
         plugin_require_api('core/FilterGroup.php');
 
-        plugin_require_api('core/DAOContact.php');
-        plugin_require_api('core/DAOCustomer.php');
-        plugin_require_api('core/DAOCustomerVault.php');
-        plugin_require_api('core/DAOGroup.php');
-        plugin_require_api('core/DAOService.php');
-        plugin_require_api('core/DAONormative.php');
-        plugin_require_api('core/DAONormativeService.php');
-
-        plugin_require_api('core/DAOStatistics.php');
-
-        plugin_require_api('core/DAOBugData.php');
         plugin_require_api('core/DAOBugNote.php');
+        plugin_require_api('core/DAOService.php');
 
         if (!config_is_set(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD))
         {
@@ -115,6 +102,24 @@ class SCrmPlugin extends MantisPlugin
 	}
 
     /*HOOKS impl*/
+
+    /*Menu events*/
+    function menu() 
+    {
+        if (access_has_global_level(config_get(SCrmPlugin::CFG_KEY_MANAGE_TABLES_TRESHOLD)))
+        {
+            //Icon names: https://fontawesome.com/v4/icons/
+            $menu[] = 
+            [
+                'title' => $this->name,
+                'url' => plugin_page( 'main_page'),
+                'icon' => 'fa-vcard-o'
+            ];
+        }
+        return $menu;
+    }
+
+    /*Columns and fields*/
 	function event_filter_columns() 
     {
 		return [
@@ -136,7 +141,7 @@ class SCrmPlugin extends MantisPlugin
 	{
 		if( $this->is_theme_enabled() )
         {
-			echo '<link rel="stylesheet" type="text/css" href="' . plugin_file( 'SCrm.css' ) . '" />' . "\n";
+			echo '<link rel="stylesheet" type="text/css" href="' . plugin_file( 'SCrm.css' ) . '" />\n';
         }
 	}
 
@@ -163,7 +168,6 @@ class SCrmPlugin extends MantisPlugin
 	{
 		config_set( self::CFG_KEY_THEME_ENABLED, gpc_get_bool( self::CFG_KEY_THEME_ENABLED, false ), $p_user_id, ALL_PROJECTS );
 	}
-
 
     /*
     bug data events

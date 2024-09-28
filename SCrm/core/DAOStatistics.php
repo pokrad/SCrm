@@ -1,4 +1,9 @@
 <?php
+plugin_require_api('core/DAOCustomer.php');
+plugin_require_api('core/DaoBugData.php');
+plugin_require_api('core/DAOBugNote.php');
+
+
 
 class DAOStatistics
 {

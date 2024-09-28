@@ -9,6 +9,13 @@ $s_plugin_SCrm_configuration_customer_required = 'Obavezan unos klijenta';
 $s_plugin_SCrm_configuration_service_required = 'Obavezan unos usluge';
 $s_plugin_SCrm_configuration_time_spent_required = 'Obavezan unos vremena';
 $s_plugin_SCrm_configuration_table_rows_per_page = 'Broj redaka na jednoj stranici tablice';
+$s_plugin_SCrm_configuration_import_mail_title = 'Konfiguracija uvoza e-mail';
+$s_plugin_SCrm_configuration_import_mail_host = 'Host';
+$s_plugin_SCrm_configuration_import_mail_port = 'Port';
+$s_plugin_SCrm_configuration_import_mail_type = 'Tip';
+$s_plugin_SCrm_configuration_import_mail_user = 'Korisnik';
+$s_plugin_SCrm_configuration_import_mail_pwd = 'Zaporka';
+$s_plugin_SCrm_configuration_import_mail_ssl = 'Koristi ssl';
 
 
 #Main menu
@@ -18,6 +25,8 @@ $s_plugin_SCrm_main_menu_services = 'Uređivanje usluga';
 $s_plugin_SCrm_main_menu_normatives = 'Uređivanje normativa';
 $s_plugin_SCrm_main_menu_contacts = 'Uređivanje kontakata';
 $s_plugin_SCrm_main_menu_reports = 'Izvješća';
+$s_plugin_SCrm_main_menu_import_emails = 'Uvezi probleme iz email-a';
+$s_plugin_SCrm_main_menu_configuration = 'Konfiguracija';
 
 
 #Global commands & labels
@@ -163,6 +172,7 @@ $s_plugin_SCrm_bug_issues_view_label_reporter_username = "Prijavitelj";
 $s_plugin_SCrm_bug_issues_view_label_handler_username = "Handler";
 $s_plugin_SCrm_bug_issues_view_label_priority = "Prioritet";
 $s_plugin_SCrm_bug_issues_view_label_status = "Status";
+$s_plugin_SCrm_bug_issues_view_label_activity_status = "Aktivnost";
 $s_plugin_SCrm_bug_issues_view_label_time_spent = "Utrošeno vrijeme";
 $s_plugin_SCrm_bug_issues_view_label_points_per_hour = "Bod/sat";
 $s_plugin_SCrm_bug_issues_view_label_total_points = "Ukupno bodova";
@@ -178,3 +188,6 @@ $s_plugin_SCrm_report_period_modified_this_month = "Ažurirani ovaj mjesec";
 $s_plugin_SCrm_report_period_modified_last_month = "Ažurirani prošli mjesec";
 $s_plugin_SCrm_report_period_closed_this_month = "Zatvoreni ovaj mjesec";
 $s_plugin_SCrm_report_period_closed_last_month = "Zatvoreni prošli mjesec";
+
+#import email
+$s_plugin_SCrm_email_import_as_issue_label = 'Kreiraj problem iz email-a';

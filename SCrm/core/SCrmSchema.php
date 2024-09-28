@@ -186,6 +186,16 @@ class SCrmSchema
 					"contact_id"
 				]
 			],
+
+			//Version 1.0.1
+			[
+				'AddColumnSQL', [
+					 plugin_table("bug_data"), 
+					 "mail_hash C(32) NULL"
+				 ]
+			]
+			,
+
 		];
 	}
 
